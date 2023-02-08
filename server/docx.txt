@@ -1,0 +1,5 @@
+A mini docx to understand the folder structure
+
+routes 
+controls - defining the routes here
+models - Database Schemas
