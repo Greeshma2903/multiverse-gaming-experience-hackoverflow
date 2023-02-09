@@ -1,0 +1,28 @@
+.profile-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-control {
+  position: relative;
+}
+
+.form-control:after {
+  content: "<>";
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 7%;
+  /*Adjust for position however you want*/
+
+  top: 50%;
+  padding: 0 0 2px;
+  /*left line */
+
+  position: absolute;
+  pointer-events: none;
+}

@@ -1,0 +1,57 @@
+#header {
+  background-image: url(/src/assets/decor/bg1.svg);
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+.ball_bounce {
+    animation: bounce 4s linear infinite;
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5%);
+    scale: 1.08;
+  }
+  50% {
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+/*
+h3 {
+  text-align: center;
+  color: aliceblue;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+h2 {
+  margin-bottom: 1em;
+  margin-top: -1em;
+  text-align: center;
+  font-size: 55px;
+  color: aliceblue;
+}
+button {
+  margin-left: 750px;
+  background-color: #9e2929; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+button:hover {
+  background-color: #934211; 
+  color: white;
+} */
