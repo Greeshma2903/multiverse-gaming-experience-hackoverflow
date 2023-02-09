@@ -7,9 +7,11 @@ import Login from "./pages/Login";
 import MemoryGame from "./pages/MemoryGame";
 import Home from "./components/Home/Home";
 import QuizGame from "./components/QuizGame/QuizGame";
-import Unihome from "./components/UniHome/Unihome";
+import Unihome from "./pages/Unihome";
 import Profile from "./components/Profile/Profile";
 import HomeContent from "./components/UniHome/HomeContext";
+import MainMenu from "./components/Menu/MainMenu";
+import TicTac from "./components/TicTac/TicTac";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/login" element={<Login />} />
-        <Route path="/memorygame" element={<MemoryGame />} />
+        {/* <Route path="/memorygame" element={<MemoryGame />} /> */}
+        {/* <Route path="/tictac" element={<TicTac />} /> */}
+        {/* <Route path="/menu" element={<MainMenu/>} /> */}
 
         {/* on authentication */}
         <Route element={<Unihome />}>

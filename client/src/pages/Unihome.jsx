@@ -1,7 +1,5 @@
 import React from "react";
-import HomeContent from "./HomeContext";
-import Navbar from "./Navbar";
-import ProfileBar from "./ProfileBar";
+import Navbar from "../components/UniHome/Navbar";
 import { Outlet } from "react-router-dom";
 
 const Unihome = () => {
