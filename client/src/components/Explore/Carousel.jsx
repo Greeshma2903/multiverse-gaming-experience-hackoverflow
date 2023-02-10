@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import cn from "classnames";
-import Next from "../../assets/chevron-up.svg";
-import Prev from "../../assets/chevron-down.svg";
 import "./Explore.css";
 import { Link } from "react-router-dom";
 
@@ -112,6 +110,7 @@ const VerticalCarousel = ({ data }) => {
                       transform: `translateY(${determinePlacement(i)}px)`,
                     }}
                   >
+                    {/* The button to open modal */}
                     <Link to={item.content.to}>{item.introline}</Link>
                   </button>
                 ))}
