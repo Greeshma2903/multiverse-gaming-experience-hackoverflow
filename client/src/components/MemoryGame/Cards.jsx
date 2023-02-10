@@ -11,34 +11,37 @@ import thor from "../../assets/thor.jpg";
 import wonderwomen from "../../assets/wonderwomen.jpg";
 import Reload from "./Reload";
 
-function Cards() {
-  const [items, setItems] = useState(
-    [
-      { id: 1, img: wonderwomen, stat: "" },
-      { id: 1, img: wonderwomen, stat: "" },
-      { id: 2, img: bp, stat: "" },
-      { id: 2, img: bp, stat: "" },
-      { id: 3, img: deadpool, stat: "" },
-      { id: 3, img: deadpool, stat: "" },
-      { id: 4, img: flash, stat: "" },
-      { id: 4, img: flash, stat: "" },
-      { id: 5, img: thor, stat: "" },
-      { id: 5, img: thor, stat: "" },
-      { id: 6, img: superman, stat: "" },
-      { id: 6, img: superman, stat: "" },
-      { id: 7, img: batman, stat: "" },
-      { id: 7, img: batman, stat: "" },
-      { id: 8, img: spidey, stat: "" },
-      { id: 8, img: spidey, stat: "" },
-    ].sort(() => Math.random() - 0.5)
-  );
+const defaultState = [
+  { id: 1, img: wonderwomen, stat: "" },
+  { id: 1, img: wonderwomen, stat: "" },
+  { id: 2, img: bp, stat: "" },
+  { id: 2, img: bp, stat: "" },
+  { id: 3, img: deadpool, stat: "" },
+  { id: 3, img: deadpool, stat: "" },
+  { id: 4, img: flash, stat: "" },
+  { id: 4, img: flash, stat: "" },
+  { id: 5, img: thor, stat: "" },
+  { id: 5, img: thor, stat: "" },
+  { id: 6, img: superman, stat: "" },
+  { id: 6, img: superman, stat: "" },
+  { id: 7, img: batman, stat: "" },
+  { id: 7, img: batman, stat: "" },
+  { id: 8, img: spidey, stat: "" },
+  { id: 8, img: spidey, stat: "" },
+].sort(() => Math.random() - 0.5);
+
+function Cards(props) {
+  const [items, setItems] = useState(defaultState);
   const [gameOver, setGameOver] = useState(false);
+  const [prev, setPrev] = useState(-1);
 
   useEffect(() => {
     const gameState = items.findIndex((ele) => ele.stat === "");
-    if (gameState === -1) setGameOver(true);
+    if (gameState === -1) {
+      setGameOver(true);
+      props.counter();
+    }
   }, [items]);
-  const [prev, setPrev] = useState(-1);
 
   function check(current) {
     if (items[current].id === items[prev].id) {
@@ -69,14 +72,20 @@ function Cards() {
     }
   }
 
+  function resetGame() {
+    setItems(prev => defaultState);
+    setGameOver(false);
+    setPrev(-1);
+  }
+
   return !gameOver ? (
     <div className="container w-1/2">
       {items.map((item, index) => (
         <Card key={index} item={item} id={index} handleClick={handleClick} />
-      ))} 
+      ))}
     </div>
   ) : (
-    <Reload/>
+    <Reload reset={resetGame} />
   );
 }
 
