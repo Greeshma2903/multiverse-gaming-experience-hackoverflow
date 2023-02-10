@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
+  const [formFields, setFormFields] = useState({
+    userEmail: "",
+    password: "",
+    userName: ""
+  });
+
   return (
     <>
       <section className="vh-80" style={{ marginTop: "3%" }}>

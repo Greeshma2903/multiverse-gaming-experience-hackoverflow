@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import "./MemoryGame.css";
 import batman from "../../assets/batman.jpg";
@@ -9,6 +9,7 @@ import spidey from "../../assets/spidey.jpg";
 import superman from "../../assets/superman.jpg";
 import thor from "../../assets/thor.jpg";
 import wonderwomen from "../../assets/wonderwomen.jpg";
+import Reload from "./Reload";
 
 function Cards() {
   const [items, setItems] = useState(
@@ -31,7 +32,12 @@ function Cards() {
       { id: 8, img: spidey, stat: "" },
     ].sort(() => Math.random() - 0.5)
   );
+  const [gameOver, setGameOver] = useState(false);
 
+  useEffect(() => {
+    const gameState = items.findIndex((ele) => ele.stat === "");
+    if (gameState === -1) setGameOver(true);
+  }, [items]);
   const [prev, setPrev] = useState(-1);
 
   function check(current) {
@@ -63,12 +69,14 @@ function Cards() {
     }
   }
 
-  return (
+  return !gameOver ? (
     <div className="container w-1/2">
       {items.map((item, index) => (
         <Card key={index} item={item} id={index} handleClick={handleClick} />
-      ))}
+      ))} 
     </div>
+  ) : (
+    <Reload/>
   );
 }
 
