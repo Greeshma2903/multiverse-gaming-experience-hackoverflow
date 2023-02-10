@@ -26,8 +26,8 @@ const Profile = () => {
   console.log(avConfig.config);
 
   return (
-    <div className="bg-darkBlue min-h-screen h-full flex flex-col justify-evenly items-center py-4">
-      <h1 className="font-head text-peach text-2xl">Customize your profile</h1>
+    <div className="bg-gradient-to-r from-indigo-500 to-indigo-900 min-h-screen h-full flex flex-col justify-evenly items-center py-4">
+      <h1 className="font-head text-peach text-5xl">Customize your profile</h1>
       <Avatar
         style={{ width: "8rem", height: "8rem" }}
         {...avConfig.config}

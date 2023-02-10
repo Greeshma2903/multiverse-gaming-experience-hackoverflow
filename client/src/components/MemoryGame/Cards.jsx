@@ -64,7 +64,7 @@ function Cards() {
   }
 
   return (
-    <div className="container">
+    <div className="container w-1/2">
       {items.map((item, index) => (
         <Card key={index} item={item} id={index} handleClick={handleClick} />
       ))}

@@ -6,7 +6,7 @@ function QuizGame() {
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-
+  
   const questions = [
     {
       text: "What type of scientist is Jane Foster in Thor?",
@@ -79,23 +79,23 @@ function QuizGame() {
   };
 
   return (
-    <div className="App">
+    <section className="Quiz min-h-screen flex flex-col justify-start items-center gap-16 py-20 bg-gradient-to-r from-indigo-500 to-pink-700">
       {/* 1. Header  */}
-      <h1>Into the Marvel Multiverse!</h1>
+      <h1 className="font-game-head text-3xl mb-2 text-white">Into the Marvel Multiverse!</h1>
 
       {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
+      <h2 className="bg-peach py-2 px-3 rounded">Score: {score}</h2>
 
       {/* 3. Show results or show the question game  */}
       {showResults ? (
         /* 4. Final Results */
-        <div className="final-results">
-          <h1>Final Results</h1>
-          <h2>
-            {score} out of {questions.length} correct - (
+        <div className="final-results text-center space-y-6 p-5">
+          <h2 className="text-2xl font-bold">Final Results</h2>
+          <h3 className="text-3xl font-semibold">
+            {score} / {questions.length} correct - (
             {(score / questions.length) * 100}%)
-          </h2>
-          <button onClick={() => restartGame()}>Restart game</button>
+          </h3>
+          <button onClick={() => restartGame()} className="p-2 bg-peach rounded text-black hover:bg-brick">Restart game</button>
         </div>
       ) : (
         /* 5. Question Card  */
@@ -104,7 +104,7 @@ function QuizGame() {
           <h2>
             Question: {currentQuestion + 1} out of {questions.length}
           </h2>
-          <h3 className="question-text">{questions[currentQuestion].text}</h3>
+          <h3 className="question-text text-customPurple font-bold text-xl m-3">{questions[currentQuestion].text}</h3>
 
           {/* List of possible answers  */}
           <ul>
@@ -121,7 +121,7 @@ function QuizGame() {
           </ul>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

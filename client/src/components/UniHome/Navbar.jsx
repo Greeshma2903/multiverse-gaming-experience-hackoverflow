@@ -37,27 +37,33 @@ const Navbar = () => {
               ✕
             </label>
           </div>
-          <div className="text-center space-y-3">
-            <h3 className="font-game text-8xl">explore</h3>
-            <h5 className="font-game text-5xl ">
+          <ul className="text-center space-y-3">
+            <li className="font-game text-3xl md:text-6xl p-2 bg-transparent border-none hover:scale-[1.08] transition-all duration-150">
               <Link to="/universe" className="hover:text-peach cursor-pointer">
                 universe
               </Link>
-            </h5>
-            <h5 className="font-game text-5xl">
-              <Link className="hover:text-peach cursor-pointer">funtopia</Link>
-            </h5>
-            <h3 className="font-game text-8xl">
+            </li>
+            <li className="font-game text-3xl md:text-6xl p-2 bg-transparent border-none hover:scale-[1.08] transition-all duration-150 ">
+              <Link to="/explore" className="hover:text-peach cursor-pointer">
+                explore
+              </Link>
+            </li>
+            <li className="font-game text-3xl md:text-6xl p-2 bg-transparent border-none hover:scale-[1.08] transition-all duration-150">
+              <Link to="/funtopia" className="hover:text-peach cursor-pointer">
+                funtopia
+              </Link>
+            </li>
+            <li className="font-game text-3xl md:text-6xl p-2 bg-transparent border-none hover:scale-[1.08] transition-all duration-150">
               <Link to="/profile" className="hover:text-peach cursor-pointer">
                 profile
               </Link>
-            </h3>
-            <h5 className="font-game text-8xl">
+            </li>
+            <li className="font-game text-3xl md:text-6xl p-2 bg-transparent border-none hover:scale-[1.08] transition-all duration-150">
               <Link to="/" className="hover:text-peach cursor-pointer">
                 logout
               </Link>
-            </h5>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

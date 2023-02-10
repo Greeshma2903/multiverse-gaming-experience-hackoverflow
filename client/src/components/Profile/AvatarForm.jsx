@@ -96,8 +96,8 @@ const AvatarForm = (props) => {
         />
       </div>
 
-      <button className="btn btn-sm bg-peach" type="submit">
-        done
+      <button className="btn btn-sm bg-peach hover:bg-brick" type="submit">
+        DONE
       </button>
     </form>
   );
