@@ -1,14 +1,9 @@
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 132deg;
-  inherits: false;
-}
-
 :root {
   --glow-height: 65vh;
   --glow-width: calc(var(--glow-height) / 1.5);
   --white: #fff;
   --orange: #f36c00;
+  
 }
 
 .glow-on-hover {
