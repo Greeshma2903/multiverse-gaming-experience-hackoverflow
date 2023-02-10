@@ -1,7 +1,60 @@
-import React from "react";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import * as api from "../api/index.js"
 
 const Login = () => {
+  const [isSignup, setIsSignup] = useState(false);
+  const [formData, setFormData] = useState();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const switchMode = () => {
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+  };
+
+  const signin = (formData, navigate) => {
+    api.signIn(formData)
+      .then((res) => {
+        const response = res.data;
+        // console.log(response)
+        alert("Logged in successfully!")
+        localStorage.setItem("profile", JSON.stringify({ response }));
+        navigate("/put_the_route");
+      })
+      .catch(error => {
+      console.log(error)
+      alert(error.response.data.message);
+      });
+  };
+
+  const signup = (formData, navigate) => {
+    api.signUp(formData)
+      .then((res) => {
+        const response = res.data;
+        alert("Account created successfully!")
+        localStorage.setItem("profile", JSON.stringify({ response }));
+        navigate("/put_the_route");
+      })
+      .catch(error => {
+        console.log(error)
+        alert(error.response.data.message);
+      });
+  };   
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData)
+    if (isSignup) {        
+        signup(formData, navigate);      
+    } else {
+      signin(formData, navigate);
+    }
+  };
+
   return (
     <>
       <section className="vh-80" style={{ marginTop: "3%" }}>
@@ -13,10 +66,11 @@ const Login = () => {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Sign in
+                        {isSignup ? "Sign up" : "Sign in"}
                       </p>
 
                       <form className="mx-1 mx-md-4">
+                      {isSignup && (
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
@@ -24,14 +78,26 @@ const Login = () => {
                               Name
                             </label>
                             <input
+                              onChange={handleChange}
                               type="text"
-                              id="name"
+                              id="userName"
+                              name="userName"
                               placeholder="Enter your name"
                               className="form-control"
                               autoComplete="off"
                             />
                           </div>
                         </div>
+                      )}
+                      
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div className="form-outline flex-fill mb-0">                                                    
+                              <label className="form-label" htmlFor="email">Email</label>
+                              <input onChange={handleChange} type="email" name="email" id="email" placeholder="Enter your email" className="form-control" autoComplete="off" />
+                          </div>
+                        </div>                      
+
 
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
@@ -40,8 +106,10 @@ const Login = () => {
                               Password
                             </label>
                             <input
+                            onChange={handleChange}
                               type="password"
                               id="password"
+                              name="password"
                               placeholder="Enter password"
                               className="form-control"
                               autoComplete="off"
@@ -53,16 +121,22 @@ const Login = () => {
                           <button
                             type="submit"
                             className="btn btn-primary btn-lg"
+                            onClick={handleSubmit}
                           >
                             Login
                           </button>
                         </div>
                         <div className="text-center text-lg-start mt-4 pt-2">
                           <p className="small fw-bold mt-2 pt-1 mb-0">
-                            Didn't Register yet?{" "}
-                            <NavLink to="/signup" className="link-success">
-                              Sign-up
-                            </NavLink>
+                            
+                            {isSignup
+                            ? "Already Have an Account? "
+                            : "Didn't Register yet? "}
+                            <span
+                          onClick={switchMode}
+                          className="text-primary cursor-mode" >
+                          {isSignup ? "Sign-in" : "Sign-up"}
+                          </span>
                           </p>
                         </div>
                       </form>

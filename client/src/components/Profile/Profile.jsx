@@ -3,6 +3,7 @@ import Avatar, { genConfig } from "react-nice-avatar";
 import AvatarForm from "./AvatarForm";
 
 const Profile = () => {
+  // store avconfig to backend
   const [avConfig, setAvConfig] = useState({
     config: genConfig({
       isGradient: Boolean(Math.round(Math.random())),
