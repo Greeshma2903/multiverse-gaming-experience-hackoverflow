@@ -1,0 +1,14 @@
+.board-row{
+  display:flex;
+  justify-content: center;
+}
+
+.btn{
+  height:120px;
+  width:120px;
+  font-size: 50px;
+}
+
+.hide{
+  display:none;
+};

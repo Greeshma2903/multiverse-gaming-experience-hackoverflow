@@ -1,0 +1,159 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+:root {
+  --glow-height: 65vh;
+  --glow-width: calc(var(--glow-height) / 1.5);
+  --white: #fff;
+  --orange: #f36c00;
+}
+
+.glow-on-hover {
+  border: 4px solid;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  @apply rounded-full flex justify-center items-center bg-black;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(60px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  @apply rounded-full opacity-100;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  /* background: transparent; */
+  position: absolute;
+  background: #000;
+  left: 0;
+  top: 0;
+  @apply rounded-full h-full w-full;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* carousel styles ---------------------------------- */
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+.outer-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.outer-container > div {
+  flex: 1;
+  padding: 20px;
+}
+
+.outer-container .carousel-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.outer-container .carousel-wrapper p,
+.carousel-item {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--white);
+  line-height: 2;
+}
+
+.carousel-button {
+  display: flex;
+  align-self: center;
+  padding: 10px;
+  max-width: 50px;
+}
+
+.slides {
+  align-self: flex-center;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  position: relative;
+  max-height: 300px;
+  height: 300px;
+}
+
+.carousel-inner::before,
+.carousel-inner::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  pointer-events: none;
+}
+
+.carousel-inner::before {
+  top: 0;
+}
+
+.carousel-inner::after {
+  bottom: 0;
+}
+
+.carousel-item {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  top: 112px;
+  transition: all 0.4s ease;
+  justify-content: center;
+}
+
+.carousel-item.visible {
+  @apply opacity-80 text-lg md:text-3xl;
+}
+
+.carousel-item.active {
+  @apply text-3xl md:text-5xl opacity-100;
+  background: -webkit-linear-gradient(45deg, #b93333, #f9d837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,49 @@
+{
+  "slides": [
+    {
+      "introline": "mirror universe",
+      "id": "mirror",
+      "content": {
+        "to": "mirror-uni",
+        "about": "This is a parallel universe where everything is opposite of our world. In this universe, good is evil and vice versa. This universe is often portrayed in science fiction as a dark and sinister version of our own.",
+        "dist": "1.1"
+      }
+    },
+    {
+      "introline": "superhero universe",
+      "id": "superhero",
+      "content": {
+        "to": "superhero-uni",
+        "about": "In this universe, people possess extraordinary abilities and use them to fight crime and protect the world. This universe is often characterized by flashy costumes and dramatic battles between heroes and villains.",
+        "dist": "2"
+      }
+    },
+    {
+      "introline": "zombie universe",
+      "id": "zombie",
+      "content": {
+        "to": "zombie-uni",
+        "about": "In this universe, the zombie apocalypse has taken hold and the undead roam the earth. It is a world where the living must constantly fight to survive against the never-ending horde of zombies.",
+        "dist": "30"
+      }
+    },
+    {
+      "introline": "cyberpunk universe",
+      "id": "cyberpunk",
+      "content": {
+        "to": "cyberpunk-uni",
+        "about": "This is a world where technology has advanced far beyond our current level, but at the cost of privacy and freedom. The citizens of this world live in a highly monitored and controlled society, where corporations hold more power than governments.",
+        "dist": "5"
+      }
+    },
+    {
+      "introline": "viking universe",
+      "id": "viking",
+      "content": {
+        "to": "viking-uni",
+        "about": "This universe is characterized by the culture, beliefs, and way of life of the ancient Vikings. In this world, warriors sail the seas in search of loot and glory.",
+        "dist": "3.4s"
+      }
+    }
+  ]
+}

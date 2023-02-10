@@ -1,0 +1,20 @@
+.MainMenu {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background-image: url(/src/assets/back1.png);
+}
+.MainMenu h1 {
+  margin-top: -150px;
+  color: aliceblue;
+  font-size: 50px;
+  font-family: cursive;
+}
+.menu-btn {
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: -1450px;
+  margin-top: -1000px;
+  font-size: 50px;
+  display: flex;
+}
