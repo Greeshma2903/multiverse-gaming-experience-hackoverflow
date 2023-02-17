@@ -121,7 +121,7 @@ const Login = () => {
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button
                             type="submit"
-                            className="btn btn-primary btn-lg"
+                            className="btn bg-peach hover:bg-gray-300"
                             onClick={handleSubmit}
                           >
                             Login
