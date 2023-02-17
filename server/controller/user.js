@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"; // to store the user in the browser for a period of time... (else re login everytime)
-
+import mongoose from "mongoose";
 import UserModal from "../models/user.js";
 
 export const signin = async (req, res) => {
@@ -61,3 +61,25 @@ export const signup = async (req, res) => {
     console.log(error);
   }
 };
+
+export const updateAvatar = async (req, res) => {
+  const { id } = req.params;
+  const avatar = req.body
+  // console.log(avatar, id)
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  const updatedPost = { avatar, _id: id };
+  await UserModal.findByIdAndUpdate(id, updatedPost, { new: true });
+  res.json(updatedPost);
+};
+
+// due to lack of time using the data in local storage. But this is how we can get the avatar from the database directly
+// const getAvatar = async (req, res) => {
+//   try {
+//     const avatar = await UserModal.find();
+//     res.status(200).json(avatar);
+//   } catch (error) {
+//     res.status(404).json({ message: error.message });
+//   }
+// };

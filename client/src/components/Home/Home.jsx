@@ -4,6 +4,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import planet1 from '../../assets/decor/planet1.png'
 import planet2 from '../../assets/decor/planet2.svg'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -34,7 +35,9 @@ const Home = () => {
               suits you the best......{" "}
             </p>
 
-            <button type="button" className="bg-peach px-8 py-2 border-3 border-dashed border-brick">Login</button>
+            <button type="button" className="bg-peach px-8 py-2 border-3 border-dashed border-brick">
+            <Link to="/login">Login</Link>              
+            </button>
         </div>
         <img className="absolute -bottom-10 -left-8 z-10 animate-bounce-slow ball_bounce" src={planet1} alt="" />
       </section>

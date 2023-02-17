@@ -23,7 +23,7 @@ const Login = () => {
         // console.log(response)
         alert("Logged in successfully!")
         localStorage.setItem("profile", JSON.stringify({ response }));
-        navigate("/put_the_route");
+        navigate("/explore");
       })
       .catch(error => {
       console.log(error)
@@ -37,7 +37,7 @@ const Login = () => {
         const response = res.data;
         alert("Account created successfully!")
         localStorage.setItem("profile", JSON.stringify({ response }));
-        navigate("/put_the_route");
+        navigate("/explore");
       })
       .catch(error => {
         console.log(error)

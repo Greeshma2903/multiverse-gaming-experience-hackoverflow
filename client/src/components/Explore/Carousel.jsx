@@ -111,7 +111,8 @@ const VerticalCarousel = ({ data }) => {
                     }}
                   >
                     {/* The button to open modal */}
-                    <Link to={item.content.to}>{item.introline}</Link>
+                    {/* <Link to={item.content.to}></Link> */}
+                    <a href="http://127.0.0.1:5500/" target="_blank">{item.introline}</a>
                   </button>
                 ))}
               </div>

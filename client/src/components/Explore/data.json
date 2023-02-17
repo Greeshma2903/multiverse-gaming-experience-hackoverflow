@@ -37,6 +37,24 @@
       }
     },
     {
+      "introline": "Magic land",
+      "id": "Magic",
+      "content": {
+        "to": "Magic-uni",
+        "about": "This is a world where mages and humans coexist in harmoany. The mages are able to use magic to perform incredible feats, but they are also hunted by the government for their powers.",
+        "dist": "5"
+      }
+    },
+    {
+      "introline": "Normal Land",
+      "id": "Normal",
+      "content": {
+        "to": "Normal-uni",
+        "about": "This is our beloved normal world. Our hero is here to search for the pets he lost in the other universes.",
+        "dist": "5"
+      }
+    },
+    {
       "introline": "viking universe",
       "id": "viking",
       "content": {
