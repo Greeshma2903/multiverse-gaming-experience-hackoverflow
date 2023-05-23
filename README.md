@@ -3,7 +3,7 @@
 > 🏆 RUNNERS UP
 
 ## ToC
-
+- [Team](#team)
 - [Installation](#installation)
     - [Client](#client-side)
     - [Server](#server-side)
@@ -11,6 +11,11 @@
 - [About](#about)
 
 ---
+## Team
+
+- [Urvi Gaundalkar](https://github.com/ug2510) - Reactjs - Frontend Developer
+- [Harsh Kumar](https://github.com/hk2257853) - Reactjs, Node.js - Fullstack Developer
+- [Medam Greeshma](https://github.com/Greeshma2903) - Reactjs - Frontend Developer
 
 ## Installation
 
